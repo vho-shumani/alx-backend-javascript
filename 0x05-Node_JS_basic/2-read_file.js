@@ -1,3 +1,4 @@
+const { error } = require('console');
 const fs = require('fs');
 function countStudents(path) {
     let cs = [];
@@ -18,7 +19,7 @@ function countStudents(path) {
         console.log(`Number of students in SWE: ${swe.length}. List: ${swe.join(', ')}`);
     }
     catch {
-        console.log('Cannot load the database');
+        throw new Error('Cannot load the database');
     }
 }
 module.exports = countStudents;
