@@ -1,4 +1,3 @@
-const { error } = require('console');
 const fs = require('fs');
 function countStudents(path) {
     try {
@@ -17,8 +16,7 @@ function countStudents(path) {
         for (let fieldKey in fields) {
             console.log(`Number of students in ${fieldKey}: ${fields[fieldKey].count}. List: ${fields[fieldKey].list.join(', ')}`);
         }
-    }
-    catch {
+    } catch {
         throw new Error('Cannot load the database');
     }
 }
