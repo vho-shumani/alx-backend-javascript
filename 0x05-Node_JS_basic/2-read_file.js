@@ -1,25 +1,22 @@
 const { error } = require('console');
 const fs = require('fs');
 function countStudents(path) {
-    let cs = [];
-    let swe = [];
-    try{
-        data = fs.readFileSync(path, 'utf8').trim().split('\n').slice(1);
-        for (line of data){
-            categories = line.split(',');
-            if (categories[3] === 'CS') {
-                cs.push(categories[0]);
-            }
-            else {
-                swe.push(categories[0]);
-            }
+
+    const data = fs.readFileSync(path, 'utf8').trim().split('\n').slice(1);
+    const fields = {};
+    console.log(`Number of students: ${data.length}`);
+    for (line of data) {   
+        categories = line.split(',');
+        const field = categories[3];
+        if (!fields[field]) {
+            fields[field] = {count: 0, list: []};
         }
-        console.log(`Number of students: ${data.length}`);
-        console.log(`Number of students in CS: ${cs.length}. List: ${cs.join(', ')}`);
-        console.log(`Number of students in SWE: ${swe.length}. List: ${swe.join(', ')}`);
+        fields[field].count += 1;
+        fields[field].list.push(categories[0])
     }
-    catch {
-        throw new Error('Cannot load the database');
+    for (let fieldKey in fields) {
+        console.log(`Number of students in ${fieldKey}: ${fields[fieldKey].count}. List: ${fields[fieldKey].list.join(', ')}`);
     }
+
 }
 module.exports = countStudents;
