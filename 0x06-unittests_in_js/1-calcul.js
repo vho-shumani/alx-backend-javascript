@@ -1,17 +1,20 @@
 function calculateNumber(type, a, b) {
+    const roundA = Math.round(a);
+    const roundB = Math.round(b);
+
     if (type == 'SUM') {
-        return Math.round(a) + Math.round(b);
+        return roundA + roundB;
     }
     
     if (type == 'SUBTRACT') {
-        return Math.round(a) - Math.round(b);
+        return roundA - roundB;
     }
 
     if (type == 'DIVIDE') {
-        if (b === 0) {
+        if (roundB === 0) {
             return 'Error'
         }
-        return Math.round(a) / Math.round(b);
+        return roundA / roundB;
     }
 }
 
