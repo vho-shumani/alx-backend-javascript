@@ -13,7 +13,7 @@ const Utils = {
     
         if (type == 'DIVIDE') {
             if (roundB === 0) {
-                return 'Error'
+                return 'Error';
             }
             return roundA / roundB;
         }

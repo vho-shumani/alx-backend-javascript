@@ -12,10 +12,10 @@ function calculateNumber(type, a, b) {
 
     if (type == 'DIVIDE') {
         if (roundB === 0) {
-            return 'Error'
+            return 'Error';
         }
         return roundA / roundB;
     }
-}
+};
 
 module.exports = calculateNumber;
