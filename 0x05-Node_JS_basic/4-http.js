@@ -1,4 +1,3 @@
-const { response } = require('express');
 const http = require('http');
 
 const app = http.createServer((request, response) => {
