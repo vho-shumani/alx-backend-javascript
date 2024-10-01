@@ -1,5 +1,5 @@
 process.stdin.setEncoding('utf8');
-console.log('Welcome to Holberton School, what is your name?');
+process.stdout.write('Welcome to Holberton School, what is your name?\n');
 
 process.stdin.on('readable', function() {
   const chunk = process.stdin.read();
@@ -9,5 +9,5 @@ process.stdin.on('readable', function() {
 });
 
 process.stdin.on('end', function() {
-  console.log('This important software is now closing');
+  process.stdout.write('This important software is now closing\n');
 });
