@@ -16,6 +16,8 @@
         "express": "^4.17.1"
     },
     "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^8.8.0",
+        "@typescript-eslint/parser": "^8.8.0",
         "babel-cli": "^6.26.0",
         "babel-preset-env": "^1.7.0",
         "chai": "^4.2.0",
