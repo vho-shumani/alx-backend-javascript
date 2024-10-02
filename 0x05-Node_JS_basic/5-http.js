@@ -17,7 +17,7 @@ const countStudents = async (path) => {
     for (const [field, names] of Object.entries(fields)) {
       output += `Number of students in ${field}: ${names.length}. List: ${names.join(', ')}\n`;
     }
-    return output;
+    return output.trimEnd();
   } catch (error) {
     throw new Error('Cannot load the database');
   }
@@ -43,8 +43,6 @@ const app = http.createServer(async (req, res) => {
   }
 });
 
-app.listen(1245, () => {
-  console.log('Server running on port 1245');
-});
+app.listen(1245);
 
 module.exports = app;
