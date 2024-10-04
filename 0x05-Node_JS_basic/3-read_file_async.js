@@ -5,7 +5,7 @@ function countStudents(path) {
     fs.readFile(path, 'utf8')
       .then((data) => {
         const lines = data.trim().split('\n');
-        const students = lines.slice(1).filter(line => line.trim() !== '');
+        const students = lines.slice(1).filter((line) => line.trim() !== '');
         const numberOfStudents = students.length;
 
         console.log(`Number of students: ${numberOfStudents}`);

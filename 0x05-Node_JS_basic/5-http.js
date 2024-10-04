@@ -4,10 +4,10 @@ const fs = require('fs').promises;
 const countStudents = async (path) => {
   try {
     const data = await fs.readFile(path, 'utf8');
-    const students = data.split('\n').filter(line => line.trim() !== '').slice(1);
+    const students = data.split('\n').filter((line) => line.trim() !== '').slice(1);
     const fields = {};
-    
-    students.forEach(student => {
+
+    students.forEach((student) => {
       const [firstname, , , field] = student.split(',');
       if (!fields[field]) fields[field] = [];
       fields[field].push(firstname);
@@ -26,7 +26,7 @@ const countStudents = async (path) => {
 const app = http.createServer(async (req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
-  
+
   if (req.url === '/') {
     res.end('Hello Holberton School!');
   } else if (req.url === '/students') {
