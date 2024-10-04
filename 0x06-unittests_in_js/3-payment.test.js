@@ -1,8 +1,17 @@
+const sinon = require('sinon');
+const expect = require('chai').expect;
+const sendPaymentRequestToApi = require('./3-payment');
 const Utils = require('./utils');
 
-function sendPaymentRequestToApi(totalAmount, totalShipping) {
-  const result = Utils.calculateNumber('SUM', totalAmount, totalShipping);
-  console.log(`The total is: ${result}`);
-}
+describe('sendPaymentRequestToApi', () => {
+  it('should use Utils.calculateNumber with correct arguments', () => {
+    const calculateNumberSpy = sinon.spy(Utils, 'calculateNumber');
+    
+    sendPaymentRequestToApi(100, 20);
 
-module.exports = sendPaymentRequestToApi;
+    expect(calculateNumberSpy.calledOnceWithExactly('SUM', 100, 20)).to.be.true;
+    expect(calculateNumberSpy.returnValues[0]).to.equal(120);
+
+    calculateNumberSpy.restore();
+  });
+});
